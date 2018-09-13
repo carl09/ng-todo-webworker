@@ -1,0 +1,10 @@
+{
+    "id": "WebWorker",
+    "title": "WebWorker builder",
+    "description": "WebWorker builder options",
+    "properties": {
+        "main": {
+            "type": "string"
+        }
+    }
+  }

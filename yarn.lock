@@ -2,12 +2,6 @@
 # yarn lockfile v1
 
 
-"@angular-builders/custom-webpack@^2.4.1":
-  version "2.4.1"
-  resolved "https://registry.yarnpkg.com/@angular-builders/custom-webpack/-/custom-webpack-2.4.1.tgz#489818c50e639e7e5016155b5e8aa062a321563a"
-  dependencies:
-    lodash "^4.17.10"
-
 "@angular-devkit/architect@0.8.1":
   version "0.8.1"
   resolved "https://registry.yarnpkg.com/@angular-devkit/architect/-/architect-0.8.1.tgz#fe7e7c09f61dcd694be288076e6ee7e36fde37a7"
@@ -4380,15 +4374,9 @@ run-queue@^1.0.0, run-queue@^1.0.3:
   dependencies:
     aproba "^1.1.1"
 
-rxjs@~6.2.0:
+rxjs@6.2.2, rxjs@~6.2.0:
   version "6.2.2"
   resolved "https://registry.yarnpkg.com/rxjs/-/rxjs-6.2.2.tgz#eb75fa3c186ff5289907d06483a77884586e1cf9"
-  dependencies:
-    tslib "^1.9.0"
-
-rxjs@~6.3.2:
-  version "6.3.2"
-  resolved "https://registry.yarnpkg.com/rxjs/-/rxjs-6.3.2.tgz#6a688b16c4e6e980e62ea805ec30648e1c60907f"
   dependencies:
     tslib "^1.9.0"
 

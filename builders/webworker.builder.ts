@@ -4,15 +4,15 @@ import {
   BuilderContext,
   BuildEvent,
 } from '@angular-devkit/architect';
-import { Observable } from 'rxjs';
-import { WebWorkerBuilderSchema } from './schema';
-import { virtualFs, resolve } from '@angular-devkit/core';
-import { Stats } from 'fs';
-import { WebpackBuilder } from '@angular-devkit/build-webpack';
 import {
   BrowserBuilder,
   NormalizedBrowserBuilderSchema,
 } from '@angular-devkit/build-angular';
+import { WebpackBuilder } from '@angular-devkit/build-webpack';
+import { resolve, virtualFs } from '@angular-devkit/core';
+import { Stats } from 'fs';
+import { Observable } from 'rxjs';
+import { WebWorkerBuilderSchema } from './schema';
 
 export default class WebWorkerBuilder
   implements Builder<WebWorkerBuilderSchema> {
@@ -44,16 +44,12 @@ export default class WebWorkerBuilder
     webpackConfig.optimization.splitChunks = false;
     webpackConfig.optimization.runtimeChunk = false;
 
-    const plugins = webpackConfig.plugins as Array<Object>;
+    const plugins = webpackConfig.plugins as object[];
 
     plugins.splice(
       plugins.findIndex(x => x.constructor.name === 'IndexHtmlWebpackPlugin'),
       1,
     );
-
-    // plugins.forEach((p: object) => {
-    //     console.log(p.constructor.name);
-    // });
 
     return webpackBuilder.runWebpack(webpackConfig);
   }

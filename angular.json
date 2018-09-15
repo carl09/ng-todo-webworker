@@ -13,18 +13,13 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/ng-todo-webworker",
+            "outputPath": "dist/ng-todo-app",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "src/tsconfig.app.json",
-            "assets": [
-              "src/favicon.ico",
-              "src/assets"
-            ],
-            "styles": [
-              "src/styles.scss"
-            ],
+            "assets": ["src/favicon.ico", "src/assets"],
+            "styles": ["src/styles.scss"],
             "scripts": []
           },
           "configurations": {
@@ -50,12 +45,19 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "ng-todo-webworker:build"
+            "browserTarget": "ng-todo-app:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "ng-todo-webworker:build:production"
+              "browserTarget": "ng-todo-app:build:production"
             }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": ["src/tsconfig.app.json"],
+            "exclude": ["**/node_modules/**"]
           }
         }
       }
@@ -70,15 +72,10 @@
         "build": {
           "builder": ".:webworker",
           "options": {
-            "outputPath": "dist/ng-todo-webworker",
+            "outputPath": "src/assets",
             "index": "src/index.html",
-            "main": "src/main.ts",
-            "tsConfig": "src/tsconfig.app.json",
-            "customWebpackConfig": {
-              "path": "./extra-webpack.config.js",
-              "mergeStrategies": { "externals": "prepend" },
-              "replaceDuplicatePlugins": true
-           }
+            "main": "src/main-webworker.ts",
+            "tsConfig": "src/tsconfig.app.json"
           },
           "configurations": {
             "production": {
@@ -97,14 +94,18 @@
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": true
-            },
-            "dev": {
-              "vendorChunk": false
             }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": ["src/tsconfig.app.json"],
+            "exclude": ["**/node_modules/**"]
           }
         }
       }
     }
   },
-  "defaultProject": "ng-todo-webworker"
+  "defaultProject": "ng-todo-app"
 }

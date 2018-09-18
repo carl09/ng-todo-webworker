@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "ng-todo-app": {
+    "app": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -45,11 +45,12 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "ng-todo-app:build"
+            "browserTarget": "app:build",
+            "port": 4220
           },
           "configurations": {
             "production": {
-              "browserTarget": "ng-todo-app:build:production"
+              "browserTarget": "app:build:production"
             }
           }
         },
@@ -62,7 +63,7 @@
         }
       }
     },
-    "ng-todo-webworker": {
+    "webworker": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -107,5 +108,5 @@
       }
     }
   },
-  "defaultProject": "ng-todo-app"
+  "defaultProject": "app"
 }
